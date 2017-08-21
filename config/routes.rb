@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   # root route
   root 'demo#index'
-  
+
+  # simple route
   # get 'demo/index'
 
   # default route
