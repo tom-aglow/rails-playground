@@ -1,2 +1,19 @@
-<h1>Subjects#new</h1>
-<p>Find me in app/views/subjects/new.html.erb</p>
+<%= link_to('<< Back to List', subjects_path, :class => 'back-link') %>
+
+<div class="subject new">
+    <h2>Add new subject</h2>
+
+    <%= form_for(@subject) do |f| %>
+
+        <label for="subject_name">Name</label>
+        <%= f.text_field(:name) %>
+
+        <label for="subject_position">Position</label>
+        <%= f.text_field(:position) %>
+
+        <label for="subject_visible">Visible</label>
+        <%= f.text_field(:visible) %>
+
+        <%= f.submit('Create subject') %>
+    <% end %>
+</div>
