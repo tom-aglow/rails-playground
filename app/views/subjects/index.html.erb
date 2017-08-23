@@ -1,0 +1,32 @@
+<div class="subjects index">
+  <h2>Subjects</h2>
+
+  <%= link_to("Add new subject", '#', :class => 'action new') %>
+
+  <table class="table" summary="Subjects list">
+    <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Subject</th>
+      <th>Visible</th>
+      <th>Pages</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @subjects.each do |subject| %>
+    <tr>
+      <td><%= subject.position %></td>
+      <td><%= subject.name %></td>
+      <td><%= subject.visible ? 'yes' : 'no' %></td>
+      <td><%= subject.pages.size %></td>
+      <td>
+        <%= link_to("Show", subject_path(subject), :class => 'action show') %>
+        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
