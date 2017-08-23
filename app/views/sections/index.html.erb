@@ -1,0 +1,39 @@
+<% unless flash[:notice].blank? %>
+    <div class="notice">
+        <%= flash[:notice] %>
+    </div>
+<% end %>
+
+<div class="sections index">
+    <h2>Sections</h2>
+
+    <%= link_to("Add new section", new_section_path, :class => 'action new') %>
+
+    <table class="table" summary="Sections list">
+        <thead class="thread-inverse">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Page ID</th>
+            <th>Visible</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @sections.each do |section| %>
+            <tr>
+                <td><%= section.id %></td>
+                <td><%= section.name %></td>
+                <td><%= section.position %></td>
+                <td><%= section.page_id %></td>
+                <td><%= section.visible ? 'yes' : 'no' %></td>
+                <td>
+                    <%= link_to("Show", section_path(section), :class => 'action show') %>
+                    <%= link_to("Edit", edit_section_path(section), :class => 'action edit') %>
+                    <%= link_to("Delete", delete_section_path(section), :class => 'action delete') %>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
