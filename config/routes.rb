@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
 
   # default route
-  # get ':controller(/:action(/:id))'
+  get ':controller(/:action(/:id))'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

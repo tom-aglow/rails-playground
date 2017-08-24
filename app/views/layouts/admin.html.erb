@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <%= stylesheet_link_tag('admin', :media => 'all') %>
+
+    <%= javascript_include_tag('application') %>
+
     <title>Simple CMS: <%= @page_title || 'Admin area' %></title>
+
+    <style>
+        span.status {
+            display: block;
+            width: 10px;
+            height: 10px;
+            margin: 0.25rem auto;
+            padding: 0;
+            border: 1px solid black;
+        }
+        span.status.true {
+            background-color: lightgreen;
+            color: darkgreen;
+        }
+
+        span.status.false{
+            background-color: lightpink;
+            color: deeppink;
+        }
+    </style>
 </head>
 <body>
     <% unless flash[:notice].blank? %>
@@ -13,6 +38,8 @@
         </div>
     <% end %>
 
+    <%= image_tag('release_13.jpg', :size => '70x70', :alt => 'album cover') %>
+    
     <%= yield %>
 </body>
 </html>
