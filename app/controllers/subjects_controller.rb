@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
 
-  # model_name.instance_variable_set(:@route_key, 'subject')
+  layout 'admin'
 
   def index
     @subjects = Subject.sorted
