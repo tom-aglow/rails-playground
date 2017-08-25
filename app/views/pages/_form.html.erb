@@ -5,10 +5,10 @@
 <%= f.text_field(:permalink) %>
 
 <label for="page_position">Position</label>
-<%= f.text_field(:position) %>
+<%= f.select(:position, 1..@page_count) %>
 
-<label for="page_subject_id">Subject ID</label>
-<%= f.text_field(:subject_id) %>
+<label for="page_subject_id">Subject</label>
+<%= f.select(:subject_id, @subjects.map {|s| [s.name, s.id]}) %>
 
 <label for="page_visible">Visible</label>
-<%= f.text_field(:visible) %>
+<%= f.check_box(:visible) %>

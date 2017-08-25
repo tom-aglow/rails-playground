@@ -2,16 +2,18 @@
 <%= f.text_field(:name) %>
 
 <label for="section_position">Position</label>
-<%= f.text_field(:position) %>
+<%= f.select(:position, 1..@section_count) %>
 
-<label for="section_subject_id">Page ID</label>
-<%= f.text_field(:page_id) %>
+<label for="section_page_id">Page</label>
+<%= f.select(:page_id, @pages.map {|p| [p.name, p.id]}) %>
+
 
 <label for="section_visible">Visible</label>
-<%= f.text_field(:visible) %>
+<%= f.check_box(:visible) %>
 
 <label for="section_content_type">Content type</label>
-<%= f.text_field(:content_type) %>
+<%= f.radio_button(:content_type, 'text') %> Text
+<%= f.radio_button(:content_type, 'HTML') %> HTML
 
 <label for="section_content">Content</label>
-<%= f.text_field(:content) %>
+<%= f.text_area(:content, :size => '40x10') %>
