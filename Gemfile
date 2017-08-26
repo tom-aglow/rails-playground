@@ -59,3 +59,6 @@ gem 'autoprefixer-rails'
 
 # JavaScript libraries
 gem 'jquery-rails'
+
+# my gems
+gem 'acts_as_list', '~> 0.7.6'
