@@ -2,6 +2,7 @@ class SubjectsController < ApplicationController
 
   layout 'admin'
 
+  before_action :find_subject, except: [:index, :new, :create]
   before_action :confirm_logged_in
 
   def index
@@ -9,7 +10,6 @@ class SubjectsController < ApplicationController
   end
 
   def show
-    @subject = Subject.find(params[:id])
   end
 
   def new
@@ -34,14 +34,10 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @subject = Subject.find(params[:id])
     @subject_count = Subject.count
   end
 
   def update
-    # Instantiate a new object using form parameters
-    @subject = Subject.find(params[:id])
-
     # Save the object
     if @subject.update_attributes(subject_params)
       # If save succeeds, redirect to the show action
@@ -55,18 +51,25 @@ class SubjectsController < ApplicationController
   end
 
   def delete
-    @subject = Subject.find(params[:id])
   end
 
   def destroy
-    @subject = Subject.find(params[:id])
     @subject.destroy
     flash[:notice] = "Subject '#{@subject.name}' was successfully deleted"
     redirect_to(subjects_path)
   end
 
+  def publish
+    sleep 2
+    @subject.update(updated_at: Time.zone.now)
+  end
+
 
   private
+
+  def find_subject
+    @subject = Subject.find(params[:id])
+  end
 
   def subject_params
     params.require(:subject).permit(:name, :position, :visible, :created_at)

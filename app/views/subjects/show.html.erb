@@ -1,4 +1,5 @@
 <%= link_to("<< Back to List", subjects_path, :class => 'back-link') %>
+<%= csrf_meta_tag %>
 
 <div class="subject show">
     <h2>Show subject</h2>
@@ -22,7 +23,9 @@
     </tr>
     <tr>
         <th>Updated</th>
-        <td><%= @subject.updated_at.to_s(:short) %></td>
+        <td id="updated-at"><%= @subject.updated_at %></td>
     </tr>
     </table>
+
+    <%= link_to 'Publish', publish_subject_path(@subject), method: :patch, remote: true, data: { disable_with: "<i class='fa fa-spinner fa-spin'></i>Updating..." } %>
 </div>
