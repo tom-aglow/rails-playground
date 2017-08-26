@@ -1,4 +1,7 @@
 class AdminUser < ApplicationRecord
+
+  has_secure_password
+
   # Relationships
   has_and_belongs_to_many :pages
   has_many :section_edits

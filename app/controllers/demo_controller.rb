@@ -3,6 +3,7 @@ class DemoController < ApplicationController
   layout false
 
   def index
+    logger.debug('*** Testing the logger ***')
     render('index')
   end
 
