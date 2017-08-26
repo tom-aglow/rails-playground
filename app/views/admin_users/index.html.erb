@@ -1,0 +1,24 @@
+<div class="pages index">
+    <h2>Admin users</h2>
+
+    <%= link_to("Add user", new_admin_user_path, :class => 'action new') %>
+
+    <table class="table" summary="Pages list">
+        <thead class="thead-inverse">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @admin_users.each do |admin_user| %>
+            <tr>
+                <td><%= admin_user.id %></td>
+                <td><%= admin_user.name %></td>
+                <td><%= mail_to(admin_user.email) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>

@@ -7,6 +7,9 @@ class AdminUser < ApplicationRecord
   has_many :section_edits
   has_many :sections, through: :section_edits
 
+  # Scopes
+  scope :sorted, -> { order('last_name ASC, first_name ASC') }
+
   # Validation
   EMAIL_REGEX = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[a-z]{2,}/i
   FORBIDDEN_USERNAMES = ['littlebopeep', 'humptydumpty', 'marymary']
@@ -30,6 +33,10 @@ class AdminUser < ApplicationRecord
                     confirmation: true
 
 
+
+  def name
+    [first_name, last_name].join(' ')
+  end
 
   private
 

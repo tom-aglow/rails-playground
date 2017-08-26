@@ -33,6 +33,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :admin_users, excepts: [:show] do
+    member do
+      get :delete
+    end
+  end
+
   # default route
   get ':controller(/:action(/:id))'
 
