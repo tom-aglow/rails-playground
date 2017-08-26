@@ -1,7 +1,7 @@
 <div class="pages index">
     <h2>Pages</h2>
 
-    <%= link_to("Add new page", new_page_path, :class => 'action new') %>
+    <%= link_to("Add new page", new_page_path(subject_id: @subject.id), :class => 'action new') %>
 
     <table class="table" summary="Pages list">
         <thead class="thead-inverse">
@@ -24,9 +24,9 @@
                 <td><%= page.subject_id %></td>
                 <td><%= status_tag(page.visible) %></td>
                 <td>
-                    <%= link_to("Show", page_path(page), :class => 'action show') %>
-                    <%= link_to("Edit", edit_page_path(page), :class => 'action edit') %>
-                    <%= link_to("Delete", delete_page_path(page), :class => 'action delete') %>
+                    <%= link_to("Show", page_path(page, subject_id: @subject.id), :class => 'action show') %>
+                    <%= link_to("Edit", edit_page_path(page, subject_id: @subject.id), :class => 'action edit') %>
+                    <%= link_to("Delete", delete_page_path(page, subject_id: @subject.id), :class => 'action delete') %>
                 </td>
             </tr>
         <% end %>

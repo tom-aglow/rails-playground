@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-
   # root route
-  root 'demo#index'
+  root to: 'public#index'
 
+  get 'show/:permalink', to: 'public#show', as: 'public_show'
+
+  # admin routes
   get 'admin', to: 'access#menu'
 
   get 'access/menu'
